@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useCart } from "../utils/CartContext";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
@@ -16,24 +17,35 @@ const Header = () => {
       navigate("/cart");
     } else {
       toast.error("Please log in to access the cart.", {
-        position: toast.POSITION.BOTTOM_RIGHT, // Set the toast position
-        autoClose: 3000, // Close the toast after 3 seconds (adjust as needed)
-        hideProgressBar: true, // Hide the progress bar
-        closeButton: false, // Do not show a close button
+        position: toast.POSITION.BOTTOM_RIGHT,
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeButton: false,
       });
     }
   };
 
   return (
-    <header className="bg-gradient-to-r from-blue-500 to-blue-700 p-4 shadow-lg">
+    <header className="bg-[#283e4a] p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Brand Logo */}
-        <div className="text-white text-3xl font-semibold tracking-tight">
-          <span className="text-yellow-400">My</span>Library
-        </div>
+        {/* Brand Logo as a Link with Bounce Animation */}
+        <Link
+          to="/"
+          className="text-white text-3xl font-semibold tracking-tight flex items-center hover:animate-bounce"
+          style={{
+            transition: "transform 0.3s ease-in-out",
+          }}
+        >
+          <span
+            className="text-blue-500"
+          >
+            My
+          </span>{" "}
+          Library
+        </Link>
 
         {/* Navigation */}
-        <nav className="space-x-4">
+        <nav className="space-x-4 flex items-center">
           {/* Display user name if authenticated */}
           {isAuthenticated && (
             <span className="text-white text-sm font-medium">
@@ -44,11 +56,12 @@ const Header = () => {
           {/* Login/Logout Button */}
           {isAuthenticated ? (
             <button
-              className="text-gray-500 hover:text-blue-700 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out border border-transparent hover:border-blue-500"
-              onClick={() => logout({ returnTo: window.location.origin })}
-            >
-              Log Out
-            </button>
+            className="text-white hover:text-blue-700 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out border border-transparent hover:border-blue-500"
+            onClick={() => logout({ returnTo: window.location.origin })}
+          >
+            Log Out
+          </button>
+          
           ) : (
             <button
               className="text-white bg-transparent border border-white hover:bg-white hover:text-blue-500 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out"
@@ -58,26 +71,22 @@ const Header = () => {
             </button>
           )}
 
-          {/* Cart Button */}
+          {/* Cart Button with Hover Animation */}
           <button
-            className="relative text-white hover:text-blue-500"
-            onClick={handleCartClick} // Use the handleCartClick function
+            className="relative text-white hover:text-blue-500 transform transition-transform duration-300 ease-in-out hover:scale-105"
+            onClick={handleCartClick}
           >
+            {/* New Cart SVG */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+              width="32"
+              height="32"
+              viewBox="0 0 48 48"
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 19l-4-4h-3a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v6a2 2 0 01-2 2h-3l-4 4z"
-              />
-              <circle cx="10" cy="10" r="2" fill="currentColor" />
-              <circle cx="17" cy="10" r="2" fill="currentColor" />
+                fill="#ffffff" // Fill color set to white
+                d="M14 36c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79-4-4-1.79-4-4-4zM2 4v4h4l7.19 15.17-2.7 4.9c-.31.58-.49 1.23-.49 1.93 0 2.21 1.79 4 4 4h24v-4H14.85c-.28 0-.5-.22-.5-.5 0-.09.02-.17.06-.24L16.2 26h14.9c1.5 0 2.81-.83 3.5-2.06l7.15-12.98c.16-.28.25-.61.25-.96a2 2 0 0 0-2-2H10.43l-1.9-4H2zm32 32c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79-4-4-1.79-4-4-4z"
+              ></path>
             </svg>
 
             {isAuthenticated && (

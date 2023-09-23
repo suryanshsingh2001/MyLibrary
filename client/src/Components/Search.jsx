@@ -87,9 +87,8 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
     className:
       "w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500",
   };
-
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 m-auto">
       <div className="lg:flex justify-between items-center mb-4">
         <Autosuggest
           suggestions={suggestions}
@@ -99,16 +98,15 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
         />
-        <div className="lg:flex space-x-4 items-center">
+        <div className="lg:flex space-x-4 items-center ml-4"> {/* Added ml-4 here */}
           <div className="relative">
             <label htmlFor="filter" className="text-gray-600">
-              Filter By:
-            </label>
+              Filter By : </label>
             <select
               id="filter"
               value={selectedFilter}
               onChange={handleFilterChange}
-              className="border rounded-lg px-2 py-1 pl-8 focus:outline-none focus:border-blue-500"
+              className="border rounded-lg px-1 py-1 pr-4 focus:outline-none focus:border-blue-500 shadow-sm "
             >
               {filters.map((filter) => (
                 <option key={filter} value={filter}>
@@ -116,16 +114,29 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
                 </option>
               ))}
             </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-4 h-4"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 12.293a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414l-2.293-2.293a1 1 0 00-1.414 0L5.293 16.707a1 1 0 01-1.414-1.414l3-3a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </div>
           <div className="relative">
             <label htmlFor="sort" className="text-gray-600">
-              Sort By:
-            </label>
+              Sort By : </label>
             <select
               id="sort"
               value={selectedSort}
               onChange={handleSortChange}
-              className="border rounded-lg px-2 py-1 pl-8 focus:outline-none focus:border-blue-500"
+              className="border rounded-lg px-2 py-1 pr-4 focus:outline-none focus:border-blue-500 shadow-sm"
             >
               {sortOptions.map((sortOption) => (
                 <option key={sortOption} value={sortOption}>
@@ -133,12 +144,27 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
                 </option>
               ))}
             </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-4 h-4"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 12.293a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414l-2.293-2.293a1 1 0 00-1.414 0L5.293 16.707a1 1 0 01-1.414-1.414l3-3a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
       {loading && <p>Loading suggestions...</p>}
     </div>
   );
-};
+
+  };
 
 export default Search;

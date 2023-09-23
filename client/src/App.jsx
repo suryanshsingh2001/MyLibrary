@@ -4,7 +4,7 @@ import debounce from "lodash.debounce";
 import { CartProvider } from "./utils/CartContext";
 import { BookList, Header, Search, Cart } from "./Components";
 import Rent from "./Pages/Rent";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -27,31 +27,32 @@ const App = () => {
     <CartProvider>
       <ToastContainer />
       <Router>
-        <main>
-          <Header />
+        
+          <main className="bg-[#f5f5f5]">
+            <Header />
 
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Search
-                    onSearch={handleSearch}
-                    onFilterChange={handleFilterChange}
-                    onSortChange={handleSortChange}
-                  />
-                  <BookList
-                    searchQuery={searchQuery}
-                    selectedFilter={selectedFilter}
-                    selectedSort={selectedSort}
-                  />
-                </>
-              }
-            />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/rent" element={<Rent />} />
-          </Routes>
-        </main>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Search
+                      onSearch={handleSearch}
+                      onFilterChange={handleFilterChange}
+                      onSortChange={handleSortChange}
+                    />
+                    <BookList
+                      searchQuery={searchQuery}
+                      selectedFilter={selectedFilter}
+                      selectedSort={selectedSort}
+                    />
+                  </>
+                }
+              />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/rent" element={<Rent />} />
+            </Routes>
+          </main>
       </Router>
     </CartProvider>
   );

@@ -2,6 +2,8 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useCart } from "../utils/CartContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
@@ -13,16 +15,21 @@ const Header = () => {
     if (isAuthenticated) {
       navigate("/cart");
     } else {
-      alert("Please log in to access the cart.");
+      toast.error("Please log in to access the cart.", {
+        position: toast.POSITION.BOTTOM_RIGHT, // Set the toast position
+        autoClose: 3000, // Close the toast after 3 seconds (adjust as needed)
+        hideProgressBar: true, // Hide the progress bar
+        closeButton: false, // Do not show a close button
+      });
     }
   };
 
   return (
-    <header className="bg-blue-500 p-4 shadow-lg">
+    <header className="bg-gradient-to-r from-blue-500 to-blue-700 p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
         {/* Brand Logo */}
         <div className="text-white text-3xl font-semibold tracking-tight">
-          <span className="text-yellow-400">Library</span> Management
+          <span className="text-yellow-400">My</span>Library
         </div>
 
         {/* Navigation */}

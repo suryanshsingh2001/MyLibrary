@@ -23,7 +23,7 @@ const BookList = ({ searchQuery }) => {
 
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=5`
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=10`
       )
       .then((response) => {
         if (response.data.items) {
@@ -110,7 +110,7 @@ const BookList = ({ searchQuery }) => {
           {books.map((book) => (
             <div
               key={book.id}
-              className="bg-white border rounded-lg shadow-md p-4 transition transform hover:scale-105"
+              className="page-turn bg-[#ead9c6] border rounded-lg shadow-md p-4"
             >
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {book.title}
@@ -149,7 +149,7 @@ const BookList = ({ searchQuery }) => {
                     onClick={() => handleAddToCart(book.id)}
                     className={`mt-2 ${
                       book.isAvailable
-                        ? "bg-blue-500 hover:bg-blue-600"
+                        ? "bg-[#46331f] hover:bg-[#bd8345]"
                         : "bg-gray-300 cursor-not-allowed"
                     } text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out`}
                     disabled={!book.isAvailable}

@@ -5,7 +5,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-6 ">
+    <footer className="bg-[#523f1b] text-white py-6 ">
       <div className="container mx-auto flex flex-col items-center justify-center text-center">
         <div className="text-3xl font-semibold mb-2">
           Explore More Amazing Books!

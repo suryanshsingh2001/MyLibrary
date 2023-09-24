@@ -27,8 +27,8 @@ const App = () => {
     <CartProvider>
       <ToastContainer />
       <Router>
-        
-          <main className="bg-[#f5f5f5]">
+        <div className="bg-gradient-to-br from-white to-[#e2d1c3]">
+          <main className="bg-gradient-to-br from-white to-[#e2d1c3]">
             <Header />
 
             <Routes>
@@ -46,15 +46,15 @@ const App = () => {
                       selectedFilter={selectedFilter}
                       selectedSort={selectedSort}
                     />
+                     <Footer />
                   </>
                 }
               />
               <Route path="/cart" element={<Cart />} />
               <Route path="/rent" element={<Rent />} />
             </Routes>
-
-            <Footer />
           </main>
+          </div>
       </Router>
     </CartProvider>
   );

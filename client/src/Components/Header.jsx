@@ -26,7 +26,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#283e4a] p-4 shadow-lg">
+    <header className="bg-[#523f1b] p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
         {/* Brand Logo as a Link with Bounce Animation */}
         <Link
@@ -56,7 +56,7 @@ const Header = () => {
           {/* Login/Logout Button */}
           {isAuthenticated ? (
             <button
-            className="text-white hover:text-blue-700 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out border border-transparent hover:border-blue-500"
+            className="text-white  border border-white hover:bg-[#ead9c6] hover:text-[#523f1b] font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out"
             onClick={() => logout({ returnTo: window.location.origin })}
           >
             Log Out
@@ -64,7 +64,7 @@ const Header = () => {
           
           ) : (
             <button
-              className="text-white bg-transparent border border-white hover:bg-white hover:text-blue-500 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out"
+              className="text-white  border border-white hover:bg-[#ead9c6] hover:text-[#523f1b] font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out"
               onClick={() => loginWithRedirect()}
             >
               Log In

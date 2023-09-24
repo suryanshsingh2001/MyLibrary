@@ -98,7 +98,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
         />
-        <div className="lg:flex space-x-4 items-center ml-4"> {/* Added ml-4 here */}
+        <div className="lg:flex space-x-4 items-center ml-4 mt-0"> {/* Added ml-4 here */}
           <div className="relative">
             <label htmlFor="filter" className="text-gray-600">
               Filter By : </label>

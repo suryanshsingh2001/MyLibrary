@@ -37,7 +37,7 @@ const Header = () => {
           }}
         >
           <span
-            className="text-blue-500"
+            className="text-[#F7EADC]"
           >
             My
           </span>{" "}

@@ -11,3 +11,11 @@
   .page-turn:hover {
     transform: perspective(1000px) rotateY(10deg);
   }
+
+.zoom-in {
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom-in:hover {
+  transform: scale(1.1);
+}

@@ -15,6 +15,7 @@ const BookList = ({ searchQuery }) => {
   const [loading, setLoading] = useState(true);
   const { addToCart, cartItems } = useCart(); // Access addToCart function and cartItems from CartContext
   const { isAuthenticated } = useAuth0(); // Access isAuthenticated from Auth0
+  const [selectedResults, setSelectedResults] = useState(5); //Reduced Results to optimize API Key Usage
 
   useEffect(() => {
     // Replace 'YOUR_API_KEY' with your actual Google Books API key
@@ -23,7 +24,7 @@ const BookList = ({ searchQuery }) => {
 
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=10`
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=${selectedResults}`
       )
       .then((response) => {
         if (response.data.items) {
@@ -55,7 +56,7 @@ const BookList = ({ searchQuery }) => {
         console.error("Error fetching book data:", error);
         setLoading(false);
       });
-  }, [searchQuery]);
+  }, [searchQuery, selectedResults]);
 
   // Function to add a book to the cart and decrease available copies
   const handleAddToCart = (bookId) => {
@@ -92,6 +93,10 @@ const BookList = ({ searchQuery }) => {
     setBooks(updatedBooks);
   };
 
+  const handleResultsChange = (event) => {
+    setSelectedResults(event.target.value);
+  };
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-semibold text-[#222222] mb-4">
@@ -102,6 +107,23 @@ const BookList = ({ searchQuery }) => {
         searching for fiction, non-fiction, or a specific genre, we have
         something for every book lover.
       </p>
+
+      <div className="mb-4">
+        <label className="text-gray-600 font-semibold">
+          Show Results Per Page:
+        </label>
+        <select
+          className="ml-2 border rounded-lg px-2 py-1 pr-4 focus:outline-none focus:border-blue-500 shadow-sm text-gray-800"
+          value={selectedResults}
+          onChange={handleResultsChange}
+        >
+          <option value={5}>5 results</option>
+          <option value={10}>10 results</option>
+          <option value={20}>20 results</option>
+          <option value={30}>30 results</option>
+       
+        </select>
+      </div>
 
       {loading ? (
         <p className="text-gray-600">Loading...</p>

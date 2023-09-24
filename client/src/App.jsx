@@ -50,7 +50,7 @@ const App = () => {
                 }
               />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/rent" element={<Rent />} />
+              
             </Routes>
           </main>
         </div>

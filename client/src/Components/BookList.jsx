@@ -15,7 +15,7 @@ const BookList = ({ searchQuery }) => {
   const [loading, setLoading] = useState(true);
   const { addToCart, cartItems } = useCart(); // Access addToCart function and cartItems from CartContext
   const { isAuthenticated } = useAuth0(); // Access isAuthenticated from Auth0
-  const [selectedResults, setSelectedResults] = useState(5); //Reduced Results to optimize API Key Usage
+  const [selectedResults, setSelectedResults] = useState(10); //Reduced Results to optimize API Key Usage
 
   useEffect(() => {
     // Replace 'YOUR_API_KEY' with your actual Google Books API key

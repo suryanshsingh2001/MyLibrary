@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import debounce from "lodash.debounce";
 import { CartProvider } from "./utils/CartContext";
 import { BookList, Header, Search, Cart, Footer } from "./Components";
-import Rent from "./Pages/Rent";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {

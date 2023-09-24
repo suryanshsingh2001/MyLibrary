@@ -4,6 +4,7 @@ import Search from "./Search";
 import BookList from "./BookList";
 import Cart from "./Cart";
 import Loading from "./Loading";
+import Footer from "./Footer";
 
 export {
     Header,
@@ -11,4 +12,5 @@ export {
     BookList,
     Cart,
     Loading,
+    Footer,
 }

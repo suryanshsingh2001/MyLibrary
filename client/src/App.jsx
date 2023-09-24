@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import debounce from "lodash.debounce";
 import { CartProvider } from "./utils/CartContext";
-import { BookList, Header, Search, Cart } from "./Components";
+import { BookList, Header, Search, Cart, Footer } from "./Components";
 import Rent from "./Pages/Rent";
 import { ToastContainer } from "react-toastify";
 
@@ -52,6 +52,8 @@ const App = () => {
               <Route path="/cart" element={<Cart />} />
               <Route path="/rent" element={<Rent />} />
             </Routes>
+
+            <Footer />
           </main>
       </Router>
     </CartProvider>

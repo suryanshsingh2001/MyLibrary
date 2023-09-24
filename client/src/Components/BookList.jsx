@@ -97,10 +97,16 @@ const BookList = ({ searchQuery }) => {
       <h1 className="text-3xl font-semibold text-[#222222] mb-4">
         Explore Our Collection
       </h1>
+      <p className="text-lg text-gray-600 mb-4">
+        Discover a wide variety of books in our collection. Whether you're
+        searching for fiction, non-fiction, or a specific genre, we have
+        something for every book lover.
+      </p>
+
       {loading ? (
         <p className="text-gray-600">Loading...</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
           {books.map((book) => (
             <div
               key={book.id}

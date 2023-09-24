@@ -62,7 +62,7 @@ const BookList = ({ searchQuery }) => {
     if (!isAuthenticated) {
       // Check if the user is not logged in
       toast.error("Please log in to use this feature.", {
-        position: toast.POSITION.BOTTOM_RIGHT,
+        position: toast.POSITION.TOP_CENTER,
         autoClose: 3000,
         hideProgressBar: true,
         closeButton: false,
@@ -80,7 +80,7 @@ const BookList = ({ searchQuery }) => {
           availableCopies: updatedCopies,
         };
         toast.success(`"${updatedBook.title}" has been added to your cart.`, {
-          position: toast.POSITION.BOTTOM_RIGHT, // Set the toast position
+          position: toast.POSITION.TOP_CENTER, // Set the toast position
           autoClose: 3000, // Close the toast after 3 seconds (adjust as needed)
           hideProgressBar: true, // Hide the progress bar
           closeButton: false, // Do not show a close button

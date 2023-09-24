@@ -17,7 +17,7 @@ const Header = () => {
       navigate("/cart");
     } else {
       toast.error("Please log in to access the cart.", {
-        position: toast.POSITION.BOTTOM_RIGHT,
+        position: toast.POSITION.TOP_CENTER,
         autoClose: 3000,
         hideProgressBar: true,
         closeButton: false,

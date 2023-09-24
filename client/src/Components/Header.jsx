@@ -36,12 +36,7 @@ const Header = () => {
             transition: "transform 0.3s ease-in-out",
           }}
         >
-          <span
-            className="text-[#F7EADC]"
-          >
-            My
-          </span>{" "}
-          Library
+          <span className="text-[#F7EADC]">My</span> Library
         </Link>
 
         {/* Navigation */}
@@ -56,12 +51,11 @@ const Header = () => {
           {/* Login/Logout Button */}
           {isAuthenticated ? (
             <button
-            className="text-white  border border-white hover:bg-[#ead9c6] hover:text-[#523f1b] font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out"
-            onClick={() => logout({ returnTo: window.location.origin })}
-          >
-            Log Out
-          </button>
-          
+              className="text-white  border border-white hover:bg-[#ead9c6] hover:text-[#523f1b] font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out"
+              onClick={() => logout({ returnTo: window.location.origin })}
+            >
+              Log Out
+            </button>
           ) : (
             <button
               className="text-white  border border-white hover:bg-[#ead9c6] hover:text-[#523f1b] font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out"

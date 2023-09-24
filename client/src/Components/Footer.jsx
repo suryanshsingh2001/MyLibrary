@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import "../index.css"
+import "../index.css";
 
 const Footer = () => {
   return (
@@ -22,9 +22,10 @@ const Footer = () => {
             className="hover:text-blue-500 transition duration-300"
             style={{ display: "flex", alignItems: "center" }}
           >
-            
             <span className="easter-egg zoom-in">
-            <FontAwesomeIcon icon={faGithub} className="mr-2 zoom-in" />View Source Code</span>
+              <FontAwesomeIcon icon={faGithub} className="mr-2 zoom-in" />
+              View Source Code
+            </span>
           </a>
           {/* Add more social media or contact links as needed */}
         </div>

@@ -46,7 +46,7 @@ const App = () => {
                       selectedFilter={selectedFilter}
                       selectedSort={selectedSort}
                     />
-                     <Footer />
+                    <Footer />
                   </>
                 }
               />
@@ -54,7 +54,7 @@ const App = () => {
               <Route path="/rent" element={<Rent />} />
             </Routes>
           </main>
-          </div>
+        </div>
       </Router>
     </CartProvider>
   );

@@ -82,19 +82,18 @@ const Cart = () => {
               </div>
             ))}
             <div className="flex justify-center items-center mt-4 space-x-2">
-            <button
-  onClick={clearCart}
-  className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out flex-grow w-1/2"
->
-  Clear Cart
-</button>
-<button
-  onClick={goToRentConfirmation}
-  className="bg-[#46331f] hover:bg-[#bd8345] text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out flex-grow w-1/2"
->
-  Rent
-</button>
-
+              <button
+                onClick={clearCart}
+                className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out flex-grow w-1/2"
+              >
+                Clear Cart
+              </button>
+              <button
+                onClick={goToRentConfirmation}
+                className="bg-[#46331f] hover:bg-[#bd8345] text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out flex-grow w-1/2"
+              >
+                Rent
+              </button>
             </div>
           </div>
         )}

@@ -121,7 +121,6 @@ const BookList = ({ searchQuery }) => {
           <option value={10}>10 results</option>
           <option value={20}>20 results</option>
           <option value={30}>30 results</option>
-       
         </select>
       </div>
 

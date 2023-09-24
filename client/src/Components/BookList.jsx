@@ -18,7 +18,7 @@ const BookList = ({ searchQuery }) => {
 
   useEffect(() => {
     // Replace 'YOUR_API_KEY' with your actual Google Books API key
-    const apiKey = "AIzaSyAHgg14D26wJRBnIE4X1uNX_rfGJ5fP4vI";
+    const apiKey = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY;
     const query = searchQuery ? `intitle:${searchQuery}` : "programming"; // Filter by title if searchQuery is provided, else use a default query
 
     axios

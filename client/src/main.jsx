@@ -1,12 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const auth0Config = {
-  domain: "dev-k8p33cfv577ia8wr.us.auth0.com",
-  clientId: "OvzpMhybzIED4yoL8Novk1QLei5InK5s",
+  domain: import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN,
+  clientId: import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID,
   redirectUri: window.location.origin,
 };
 ReactDOM.createRoot(document.getElementById("root")).render(

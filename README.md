@@ -53,7 +53,7 @@ Follow these steps to set up, run, and deploy MyLibrary on Vercel:
 
 ```bash
 git clone https://github.com/suryanshsingh2001/MyLibrary.git
-cd Client
+cd client
 ```
 2. Install Dependencies when in `client` Directory
 

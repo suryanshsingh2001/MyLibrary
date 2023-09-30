@@ -2,7 +2,12 @@
 
 MyLibrary is a modern and user-friendly library management web application built with React.js, Vite, Tailwind CSS, and powered by the Google API for fetching book data. It also incorporates Auth0 for secure authentication and session management, Font Awesome icons for styling, Axios for API calls, React Infinite Scroll for lazy loading, Toastify for notification messages, and `react-autocomplete` for search suggestions.
 
-🔗 [Live Link](https://mylibrary-devrev.vercel.app/)
+
+
+https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-4210-abef-6f1f119b8d11
+
+
+🔗 [Live Link](https://mylibrary01.vercel.app/)
 
 ## Table of Contents 
 - [Introduction](#introduction)
@@ -48,7 +53,7 @@ Follow these steps to set up, run, and deploy MyLibrary on Vercel:
 
 ```bash
 git clone https://github.com/suryanshsingh2001/MyLibrary.git
-cd Client
+cd client
 ```
 2. Install Dependencies when in `client` Directory
 

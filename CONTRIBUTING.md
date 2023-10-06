@@ -9,7 +9,7 @@ Welcome to MyLibrary, a modern library management web application built with Rea
 - [🧰 Coding Guidelines](#coding-guidelines)
 - [🔗 Creating Pull Requests](#creating-pull-requests)
 - [📖 Documentation](#documentation)
-- [💬 Feedback and Discussion](#feedback-and-discussion)
+
 
 ## 🛠️ How to Contribute
 

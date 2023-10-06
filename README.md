@@ -10,16 +10,18 @@ https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-421
 🔗 [Live Link](https://mylibrary01.vercel.app/)
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Tech Stack](#tech-stack)
-- [Tasks](#tasks)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [Code of Conduct](#code-of-conduct)
-- [Hacktoberfest Contribution](#hacktoberfest-contribution)
-- [Security](#security)
-- [Feedback](#feedback)
-- [License](#license)
+- [MyLibrary 📚](#mylibrary-)
+  - [Table of Contents](#table-of-contents)
+  - [Tech Stack 🛠️](#tech-stack-️)
+  - [Features ✅](#features-)
+  - [📦 Project Dockerization](#-project-dockerization)
+  - [Getting Started 🚀](#getting-started-)
+  - [Contributing 🤝](#contributing-)
+  - [Code of Conduct 📜](#code-of-conduct-)
+  - [Hacktoberfest Contribution 🎃](#hacktoberfest-contribution-)
+  - [Security 🔒](#security-)
+  - [Feedback 💬](#feedback-)
+  - [License 📝](#license-)
 
 ## Tech Stack 🛠️
 
@@ -49,6 +51,19 @@ https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-421
    - [x] Implement a cart feature, upon adding books to the cart, the user will be able to check out and rent them. This should reflect in the availability and number of copies fields.
    
 ---
+## 📦 Project Dockerization
+
+To run RepoSavant in a Docker container, follow these steps:
+
+1. Clone this repository.
+2. Build the Docker image:
+```bash[]
+docker build --pull --rm -f "client\Dockerfile" -t mylibrary:latest "client" 
+```
+3. Run the Docker container:
+```bash[]
+docker run --rm -d  -p 8080:8080/tcp mylibrary:latest
+```
 
 ## Getting Started 🚀
 

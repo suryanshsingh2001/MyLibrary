@@ -58,7 +58,7 @@ To run RepoSavant in a Docker container, follow these steps:
 1. Clone this repository.
 2. Build the Docker image:
 ```bash[]
-docker build --pull --rm -f "client\Dockerfile" -t mylibrary:latest "client" 
+docker build --pull --rm -f "Dockerfile" -t mylibrary:latest
 ```
 3. Run the Docker container:
 ```bash[]

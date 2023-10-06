@@ -9,12 +9,17 @@ https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-421
 
 🔗 [Live Link](https://mylibrary01.vercel.app/)
 
-## Table of Contents 
+## Table of Contents
 - [Introduction](#introduction)
 - [Tech Stack](#tech-stack)
 - [Tasks](#tasks)
 - [Getting Started](#getting-started)
-
+- [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
+- [Hacktoberfest Contribution](#hacktoberfest-contribution)
+- [Security](#security)
+- [Feedback](#feedback)
+- [License](#license)
 
 ## Tech Stack 🛠️
 
@@ -32,7 +37,7 @@ https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-421
 
 ---
 
-## Tasks ✅
+## Features ✅
    - [x] An aesthetically pleasing and optimized loading animation.
    - [x] New user signup and login, using Proper authentication and sessions (Sign in with social media, Email and mobile number verification gets extra brownie points).
    - [x] Users can see the list of books, preferably using an actual endpoint (API) as a data source for books.
@@ -81,6 +86,33 @@ npm run dev
 - Sign up for an account on [Vercel](https://vercel.com/).
 - Follow Vercel's deployment instructions to connect your GitHub repository and deploy your app.
 
+
+## Contributing 🤝
+We welcome contributions from the community! Whether you are a developer, designer, writer, or enthusiast, there are many ways to get involved. Check out our [**Contributing Guidelines**](https://github.com/suryanshsingh2001/MyLibrary/blob/main/CONTRIBUTING.md) to learn more about how you can contribute.
+
+## Code of Conduct 📜
+Please review our [**Code of Conduct**](https://github.com/suryanshsingh2001/MyLibrary/blob/main/CODE_OF_CONDUCT.md) to understand the expectations for behavior within our community.
+
+## Hacktoberfest Contribution 🎃
+MyLibrary actively participates in Hacktoberfest, an annual celebration of open-source contributions. Here's how you can join the Hacktoberfest fun with us:
+
+1. Look for issues labeled as `Hacktoberfest` in our GitHub issue tracker. These are specially curated issues for Hacktoberfest contributors.
+2. Contribute to these issues by following the guidelines mentioned in each issue. You can work on bug fixes, features, or enhancements.
+
+3. Submit your pull request (PR) with your contribution. Our team will review your PR and provide feedback.
+
+4. Once your PR is merged, it will count towards your participation in Hacktoberfest. Plus, you'll be helping us improve MyLibrary!
+
+## Security 🔒
+The security of MyLibrary is important to us. If you discover any security vulnerabilities, please review our [**Security Policy**](https://github.com/suryanshsingh2001/MyLibrary/blob/main/SECURITY.md) for reporting guidelines.
+
+## Feedback 💬
+We value your feedback and suggestions. Whether you have ideas for new features, bug reports, or general feedback, please visit our Feedback Section to share your thoughts.
+
+## License 📝
+MyLibrary is open-source software licensed under the MIT License.
+
 ---
 
-> Enjoy using MyLibrary for efficient library management!
+>"Let's write the next chapter together!" 📝🌟
+Happy coding and happy reading! 📚🚀

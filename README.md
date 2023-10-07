@@ -1,7 +1,7 @@
 # MyLibrary 📚
 [![version](https://img.shields.io/badge/version-1.0.0--beta-yellow)](https://github.com/suryanshsingh2001/MyLibrary)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/suryanshsingh2001/MyLibrary/blob/main/LICENSE)
-[![GitHub Issues](https://img.shields.io/github/issues/suryanshsingh2001/MyLibrary.svg)](https://github.com/suryanshsingh2001/MyLibraryissues)
+[![GitHub Issues](https://img.shields.io/github/issues/suryanshsingh2001/MyLibrary.svg)](https://github.com/suryanshsingh2001/MyLibrary/issues)
 <a href="https://mylibrary01.vercel.app">
         <img alt="website" src="https://img.shields.io/website/http/huggingface.co/docs/transformers/index.svg?down_color=red&down_message=offline&up_message=online">
 </a>

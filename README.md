@@ -21,6 +21,7 @@ https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-421
   - [Table of Contents](#table-of-contents)
   - [Tech Stack 🛠️](#tech-stack-️)
   - [Features ✅](#features-)
+  - [Configuratuion 🛠️](#configuration-)
   - [Project Dockerization 📦](#project-dockerization-)
   - [Getting Started 🚀](#getting-started-)
   - [Contributing 🤝](#contributing-)

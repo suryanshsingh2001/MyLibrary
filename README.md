@@ -1,20 +1,28 @@
 # MyLibrary 📚
+[![version](https://img.shields.io/badge/version-1.0.0--beta-yellow)](https://github.com/suryanshsingh2001/MyLibrary)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/suryanshsingh2001/MyLibrary/blob/main/LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/suryanshsingh2001/MyLibrary.svg)](https://github.com/suryanshsingh2001/MyLibraryissues)
+<a href="https://mylibrary01.vercel.app">
+        <img alt="website" src="https://img.shields.io/website/http/huggingface.co/docs/transformers/index.svg?down_color=red&down_message=offline&up_message=online">
+</a>
 
 MyLibrary is a modern and user-friendly library management web application built with React.js, Vite, Tailwind CSS, and powered by the Google API for fetching book data. It also incorporates Auth0 for secure authentication and session management, Font Awesome icons for styling, Axios for API calls, React Infinite Scroll for lazy loading, Toastify for notification messages, and `react-autocomplete` for search suggestions.
 
 
+## Demo 🧑🏻‍💻
+
+🔗 [Live Link](https://mylibrary01.vercel.app/)
 
 https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-4210-abef-6f1f119b8d11
 
-
-🔗 [Live Link](https://mylibrary01.vercel.app/)
 
 ## Table of Contents
 - [MyLibrary 📚](#mylibrary-)
   - [Table of Contents](#table-of-contents)
   - [Tech Stack 🛠️](#tech-stack-️)
   - [Features ✅](#features-)
-  - [📦 Project Dockerization](#-project-dockerization)
+  - [Configuration 🛠️](#configuration-)
+  - [Project Dockerization📦](#project-dockerization)
   - [Getting Started 🚀](#getting-started-)
   - [Contributing 🤝](#contributing-)
   - [Code of Conduct 📜](#code-of-conduct-)
@@ -51,7 +59,11 @@ https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-421
    - [x] Implement a cart feature, upon adding books to the cart, the user will be able to check out and rent them. This should reflect in the availability and number of copies fields.
    
 ---
-## 📦 Project Dockerization
+## Configuration 🛠️
+
+---
+
+## Project Dockerization 📦 
 
 To run RepoSavant in a Docker container, follow these steps:
 
@@ -64,7 +76,7 @@ docker build --pull --rm -f "Dockerfile" -t mylibrary:latest
 ```bash[]
 docker run --rm -d  -p 8080:8080/tcp mylibrary:latest
 ```
-
+---
 ## Getting Started 🚀
 
 Follow these steps to set up, run, and deploy MyLibrary on Vercel:

@@ -18,9 +18,6 @@ export default {
     },
     
     extend: {
-      screens: {
-      'xs': '0px',
-    },
       fontFamily: {
         palanquin: ['Palanquin', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],

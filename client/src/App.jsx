@@ -26,8 +26,8 @@ const App = () => {
     <CartProvider>
       <ToastContainer />
       <Router>
-        <div className="bg-gradient-to-br from-white to-[#e2d1c3]">
-          <main className="bg-gradient-to-br from-white to-[#e2d1c3]">
+        <div className="bg-gradient-to-br from-white to-[#e2d1c3] min-h-screen">
+          <main className="bg-gradient-to-br from-white to-[#e2d1c3] min-h-screen flex flex-col">
             <Header />
 
             <Routes>

@@ -98,8 +98,8 @@ const BookList = ({ searchQuery }) => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold text-[#222222] mb-4">
+    <div className="container mx-auto p-4 py-12 m-auto">
+      <h1 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">
         Explore Our Collection
       </h1>
       <p className="text-lg text-gray-600 mb-4">

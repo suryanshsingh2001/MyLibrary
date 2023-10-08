@@ -88,7 +88,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
       "w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500",
   };
   return (
-    <div className="container mx-auto p-4 m-auto">
+    <div className="container mx-auto p-4">
       <div className="lg:flex justify-between items-center mb-4">
         <Autosuggest
           suggestions={suggestions}
@@ -98,10 +98,10 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
         />
-        <div className="lg:flex space-x-4 items-center ml-4 mt-0">
+        <div className="ml-4 mt-4 gap-4 grid lg:flex lg:gap-8 lg:m-0">
           {" "}
           {/* Added ml-4 here */}
-          <div className="relative">
+          <div className="relative flex items-center justify-between gap-2">
             <label htmlFor="filter" className="text-gray-600">
               Filter By :{" "}
             </label>
@@ -132,7 +132,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
               </svg>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative flex items-center justify-between gap-2">
             <label htmlFor="sort" className="text-gray-600">
               Sort By :{" "}
             </label>

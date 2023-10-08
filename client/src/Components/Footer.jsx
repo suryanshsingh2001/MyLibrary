@@ -6,7 +6,7 @@ import "../index.css";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#523f1b] text-white py-6 ">
+    <footer className="bg-[#523f1b] text-white py-6 mt-auto">
       <div className="container mx-auto flex flex-col items-center justify-center text-center">
         <div className="text-3xl font-semibold mb-2">
           Explore More Amazing Books!

@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
-  const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+  const { loginWithRedirect, isAuthenticated,  logout, user } = useAuth0();
   const { cartItems } = useCart();
   const navigate = useNavigate();
 
@@ -38,15 +38,17 @@ const Header = () => {
         >
           <span className="text-[#F7EADC]">My</span> Library
         </Link>
-
-        {/* Navigation */}
-        <nav className="space-x-4 flex items-center">
-          {/* Display user name if authenticated */}
+<div className="content flex max-[500px]:flex-col-reverse flex-row items-center gap-4 ">
+  {/* Display user name if authenticated */}
           {isAuthenticated && (
             <span className="text-white text-sm font-medium">
               Hello, {user.name}
             </span>
           )}
+  
+        {/* Navigation */}
+        <nav className="space-x-4 flex items-center">
+          
 
           {/* Login/Logout Button */}
           {isAuthenticated ? (
@@ -90,6 +92,8 @@ const Header = () => {
             )}
           </button>
         </nav>
+        
+</div>
       </div>
     </header>
   );

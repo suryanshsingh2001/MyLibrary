@@ -16,6 +16,7 @@ export default {
       '4xl': ['48px', '58px'],
       '8xl': ['96px', '106px']
     },
+    
     extend: {
       fontFamily: {
         palanquin: ['Palanquin', 'sans-serif'],

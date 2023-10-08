@@ -5,6 +5,7 @@ import { useCart } from "../utils/CartContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Logo from "./Logo";
 
 const Header = () => {
   const { loginWithRedirect, isAuthenticated,  logout, user } = useAuth0();
@@ -31,12 +32,10 @@ const Header = () => {
         {/* Brand Logo as a Link with Bounce Animation */}
         <Link
           to="/"
-          className="text-white text-3xl font-semibold tracking-tight flex items-center hover:animate-bounce"
-          style={{
-            transition: "transform 0.3s ease-in-out",
-          }}
+          className="text-white text-3xl font-semibold tracking-tight flex items-center"
+          
         >
-          <span className="text-[#F7EADC]">My</span> Library
+          <Logo/>
         </Link>
 <div className="content flex max-[500px]:flex-col-reverse flex-row items-center gap-4 ">
   {/* Display user name if authenticated */}

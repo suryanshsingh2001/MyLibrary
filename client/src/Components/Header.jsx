@@ -11,10 +11,11 @@ const Header = () => {
   const { loginWithRedirect, isAuthenticated,  logout, user } = useAuth0();
   const { cartItems } = useCart();
   const navigate = useNavigate();
+  const isTrue = true; // Variable to temporarily store true value
 
   // Function to navigate to the cart page if logged in, show prompt if not
   const handleCartClick = () => {
-    if (isAuthenticated) {
+    if (isTrue) { //Change to isAuthenticated to enable authentication
       navigate("/cart");
     } else {
       toast.error("Please log in to access the cart.", {
@@ -84,7 +85,7 @@ const Header = () => {
               ></path>
             </svg>
 
-            {isAuthenticated && (
+            {isTrue && ( //Change to isAuthenticated to enable authentication
               <span className="absolute top-0 right-0 bg-red-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-xs font-semibold">
                 {cartItems.length}
               </span>

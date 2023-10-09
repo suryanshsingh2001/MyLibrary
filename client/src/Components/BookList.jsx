@@ -16,6 +16,7 @@ const BookList = ({ searchQuery }) => {
   const { addToCart, cartItems } = useCart(); // Access addToCart function and cartItems from CartContext
   const { isAuthenticated } = useAuth0(); // Access isAuthenticated from Auth0
   const [selectedResults, setSelectedResults] = useState(10); //Reduced Results to optimize API Key Usage
+  const isTrue = true; // Variable to temporarily store true value
 
   useEffect(() => {
     // Replace 'YOUR_API_KEY' with your actual Google Books API key
@@ -60,7 +61,7 @@ const BookList = ({ searchQuery }) => {
 
   // Function to add a book to the cart and decrease available copies
   const handleAddToCart = (bookId) => {
-    if (!isAuthenticated) {
+    if (!isTrue) { //Change to isAuthenticated to enable authentication
       // Check if the user is not logged in
       toast.error("Please log in to use this feature.", {
         position: toast.POSITION.TOP_CENTER,

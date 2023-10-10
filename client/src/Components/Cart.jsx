@@ -86,8 +86,14 @@ const Cart = () => {
               ))}
             </div>
 
+<<<<<<< HEAD
             <div className="flex w-3/12 mt-11 justify-center items-center mt-4 space-x-2">
             <button
+=======
+            <div className="flex w-3/12  justify-center items-center mt-4 space-x-2">
+              <button
+              class="relative w-56 inline-flex items-center justify-center px-10 py-4 overflow-hidden text-white bg-[#46331f] rounded-lg group"
+>>>>>>> 20d983a256421eba2f2fcfee2e88ae9f59988572
                 onClick={clearCart}
                 className="relative w-56 inline-flex items-center justify-center px-10 py-4  sm:px-14 overflow-hidden text-white bg-[#46331f] rounded-lg group "
                 style={{ whiteSpace: 'nowrap' }}

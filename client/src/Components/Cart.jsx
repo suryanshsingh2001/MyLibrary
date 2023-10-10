@@ -37,8 +37,8 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fdfcfb] via-[#e2d1c3] to-[#fdfcfb]">
-      <div className="container mx-auto p-4 flex flex-col justify-center items-center h-screen">
-        <h1 className="text-2xl font-semibold mb-4">Shopping Cart</h1>
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-semibold mb-4 text-center">Shopping Cart</h1>
         {cartItems.length === 0 ? (
           <div className="text-center mt-4">
             <h1 className="text-3xl text-gray-500">

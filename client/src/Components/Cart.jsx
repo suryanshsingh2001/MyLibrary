@@ -89,20 +89,20 @@ const Cart = () => {
             <div className="flex w-3/12 mt-11 justify-center items-center mt-4 space-x-2">
             <button
                 onClick={clearCart}
-                class="relative w-56 inline-flex items-center justify-center px-10 py-4  sm:px-14 overflow-hidden text-white bg-[#46331f] rounded-lg group "
+                className="relative w-56 inline-flex items-center justify-center px-10 py-4  sm:px-14 overflow-hidden text-white bg-[#46331f] rounded-lg group "
                 style={{ whiteSpace: 'nowrap' }}
               >
-                  <span class="absolute w-10 h-0 transition-all duration-500 ease-out bg-black rounded-full group-hover:w-56 group-hover:h-56"></span>
-                  <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 "></span>
-                  <span class="relative">Clear Cart</span>
+                  <span className="absolute w-10 h-0 transition-all duration-500 ease-out bg-black rounded-full group-hover:w-56 group-hover:h-56"></span>
+                  <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 "></span>
+                  <span className="relative">Clear Cart</span>
               </button>
               <button
                 onClick={goToRentConfirmation}
-                class="relative w-56 inline-flex items-center justify-center px-10 py-4 overflow-hidden text-white bg-[#46331f] rounded-lg group"
+                className="relative w-56 inline-flex items-center justify-center px-10 py-4 overflow-hidden text-white bg-[#46331f] rounded-lg group"
               >
-                  <span class="absolute w-10 h-0 transition-all duration-500 ease-out bg-black rounded-full group-hover:w-56 group-hover:h-56"></span>
-                  <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 "></span>
-                  <span class="relative">Rent</span>
+                  <span className="absolute w-10 h-0 transition-all duration-500 ease-out bg-black rounded-full group-hover:w-56 group-hover:h-56"></span>
+                  <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 "></span>
+                  <span className="relative">Rent</span>
               </button>
             </div>
           </div>

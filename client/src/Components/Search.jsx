@@ -117,20 +117,6 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-4 h-4"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 12.293a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414l-2.293-2.293a1 1 0 00-1.414 0L5.293 16.707a1 1 0 01-1.414-1.414l3-3a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
           </div>
           <div className="relative flex items-center justify-between gap-2">
             <label htmlFor="sort" className="text-gray-600">
@@ -149,18 +135,6 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
               ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-4 h-4"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 12.293a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414l-2.293-2.293a1 1 0 00-1.414 0L5.293 16.707a1 1 0 01-1.414-1.414l3-3a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
             </div>
           </div>
         </div>

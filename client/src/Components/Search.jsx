@@ -78,7 +78,6 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
   const renderSuggestion = (suggestion) => <div>{suggestion.title}</div>;
 
   const onChange = (event, { newValue }) => {
-    console.log("changiong")
     setValue(newValue);
     onSearch(newValue);
   };

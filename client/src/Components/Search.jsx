@@ -85,7 +85,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
     value,
     onChange,
     className:
-      "w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500",
+    "w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-[#523f1b] text-gray-700 bg-white placeholder-gray-400 shadow-sm transition-all duration-300 ease-in-out",
   };
   return (
     <div className="container mx-auto p-4">

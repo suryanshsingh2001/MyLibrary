@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Autosuggest from "react-autosuggest";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Button from "@mui/material/Button";
 import axios from "axios";
 
+const theme = createTheme({
+  palette: {
+    ochre: {
+      main: '#523f1b',
+      light: '#E9DB5D',
+      dark: '#A29415',
+      contrastText: '#242105',
+    },
+  },
+});
 const Search = ({ onSearch, onFilterChange, onSortChange }) => {
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -66,6 +78,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
   const renderSuggestion = (suggestion) => <div>{suggestion.title}</div>;
 
   const onChange = (event, { newValue }) => {
+    console.log("changiong")
     setValue(newValue);
     onSearch(newValue);
   };
@@ -88,16 +101,23 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
       "w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500",
   };
   return (
+    <ThemeProvider theme={theme}>
+
     <div className="container mx-auto p-4">
       <div className="lg:flex justify-between items-center mb-4">
-        <Autosuggest
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={inputProps}
-        />
+        <div className="flex flex-row gap-2 items-center">
+          <Autosuggest
+            suggestions={suggestions}
+            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={onSuggestionsClearRequested}
+            getSuggestionValue={getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            inputProps={inputProps}
+          />
+          <span>
+            <Button color="ochre" variant="outlined" type="submit" >Search</Button>
+          </span>
+        </div>
         <div className="ml-4 mt-4 gap-4 grid lg:flex lg:gap-8 lg:m-0">
           {" "}
           {/* Added ml-4 here */}
@@ -134,13 +154,13 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600">
-            </div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-600"></div>
           </div>
         </div>
       </div>
       {loading && <p>Loading suggestions...</p>}
     </div>
+    </ThemeProvider>
   );
 };
 

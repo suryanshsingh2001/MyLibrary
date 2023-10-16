@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/icons-material": "^5.14.13",
     "axios": "^1.5.0",
     "firebase": "^10.4.0",
     "lodash.debounce": "^4.0.8",

@@ -5,6 +5,7 @@ import BookList from "./BookList";
 import Cart from "./Cart";
 import Loading from "./Loading";
 import Footer from "./Footer";
+import { TopButton } from "./TopButton";
 
 export {
     Header,
@@ -13,4 +14,5 @@ export {
     Cart,
     Loading,
     Footer,
+    TopButton
 }

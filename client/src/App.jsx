@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import debounce from "lodash.debounce";
 import { CartProvider } from "./utils/CartContext";
-import { BookList, Header, Search, Cart, Footer } from "./Components";
+import { BookList, Header, Search, Cart, Footer, TopButton } from "./Components";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
@@ -46,6 +46,7 @@ const App = () => {
                       selectedSort={selectedSort}
                     />
                     <Footer />
+                    <TopButton />
                   </>
                 }
               />

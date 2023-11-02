@@ -1,4 +1,4 @@
-#Improved Layout Design for Book Lists
+# Improved Layout Design for Book Lists
 
 ## Introduction
 This pull request showcases a comprehensive UI/UX redesign for the book lists layout in the MyLibrary 📚 web application. The MyLibrary app is a modern library management tool developed using React.js, featuring 🔐 Auth0 for authentication and utilizing 📖 Google Books API for book data. The user interface has been styled with 🎨 Tailwind CSS to provide an exceptional user experience.

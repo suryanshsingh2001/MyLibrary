@@ -9,7 +9,9 @@
 MyLibrary is a modern and user-friendly library management web application built with React.js, Vite, Tailwind CSS, and powered by the Google API for fetching book data. It also incorporates Auth0 for secure authentication and session management, Font Awesome icons for styling, Axios for API calls, React Infinite Scroll for lazy loading, Toastify for notification messages, and `react-autocomplete` for search suggestions.
 
 
-## Demo 🧑🏻‍💻
+🚨 **Important Note**:
+
+We are currently in the process of transitioning our authentication provider to Firebase. Please refer to the `firebase` branch for the latest updates and instructions related to Firebase authentication.
 
 🔗 [Live Link](https://mylibrary01.vercel.app/)
 

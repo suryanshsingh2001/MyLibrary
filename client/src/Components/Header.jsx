@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#523f1b] p-4 shadow-lg">
+    <header className="bg-gradient-to-r from-[#523f1b] to-[#7b5e2d] p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
         {/* Brand Logo as a Link with Bounce Animation */}
         <Link

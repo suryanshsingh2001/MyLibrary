@@ -4,8 +4,10 @@ import debounce from "lodash.debounce";
 import { CartProvider } from "./utils/CartContext";
 import { BookList, Header, Search, Cart, Footer, TopButton } from "./Components";
 import { ToastContainer } from "react-toastify";
+import { auth } from "./firebase/firebase";
 
 const App = () => {
+ 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("title");
   const [selectedSort, setSelectedSort] = useState("relevance");
@@ -51,7 +53,8 @@ const App = () => {
                 }
               />
               <Route path="/cart" element={<Cart />} />
-              
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signout" element={<SignOut />} />
             </Routes>
           </main>
         </div>

@@ -18,10 +18,6 @@ We are currently in the process of transitioning our authentication provider to 
 https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-4210-abef-6f1f119b8d11
 
 
-
-https://github.com/user-attachments/assets/aa049c47-0923-460b-b6f4-016ae3f0a6c7
-
-
 https://github.com/user-attachments/assets/7e44b28c-73c9-4d77-916e-cb5cbb0b718f
 
 

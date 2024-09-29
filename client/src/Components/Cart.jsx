@@ -88,7 +88,6 @@ const Cart = () => {
 
             <div className="flex w-3/12  justify-center items-center mt-4 space-x-2">
               <button
-              class="relative w-56 inline-flex items-center justify-center px-10 py-4 overflow-hidden text-white bg-[#46331f] rounded-lg group"
                 onClick={clearCart}
                 className="relative w-56 inline-flex items-center justify-center px-10 py-4  sm:px-14 overflow-hidden text-white bg-[#46331f] rounded-lg group "
                 style={{ whiteSpace: 'nowrap' }}

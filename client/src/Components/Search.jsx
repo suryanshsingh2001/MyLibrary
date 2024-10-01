@@ -67,7 +67,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
           placeholder="Search for Books Suggestions"
           loadOptions={handleChange}
           onChange={handleSelect}
-          defaultOptions
+          defaultOptions={false} /* No loading icon on mount */
           className="w-full"
         />
         <div className="mt-4 gap-4 grid lg:flex lg:m-0">

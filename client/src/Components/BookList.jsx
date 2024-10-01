@@ -22,7 +22,6 @@ const BookList = ({ searchQuery }) => {
   const isTrue = true;
 
   const fetchBooks = useCallback(() => {
-    // Replace 'YOUR_API_KEY' with your actual Google Books API key
     const apiKey = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY;
     const query = searchQuery ? `intitle:${searchQuery}` : 'programming'; // Filter by title if searchQuery is provided, else use a default query
     const startIndex = page * selectedResults;
@@ -77,7 +76,6 @@ const BookList = ({ searchQuery }) => {
   // Function to add a book to the cart and decrease available copies
   const handleAddToCart = (bookId) => {
     if (!isTrue) {
-      // Check if the user is not logged in
       toast.error('Please log in to use this feature.', {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 3000,
@@ -98,9 +96,9 @@ const BookList = ({ searchQuery }) => {
         };
         toast.success(`"${updatedBook.title}" has been added to your cart.`, {
           position: toast.POSITION.TOP_CENTER, // Set the toast position
-          autoClose: 3000, // Close the toast after 3 seconds (adjust as needed)
-          hideProgressBar: true, // Hide the progress bar
-          closeButton: false, // Do not show a close button
+          autoClose: 3000, // Close the toast after 3 seconds
+          hideProgressBar: true,
+          closeButton: false,
         });
         return updatedBook;
       }
@@ -154,7 +152,6 @@ const BookList = ({ searchQuery }) => {
           <option value={30}>30 results</option>
         </select>
       </div>
-
       {loading ? (
         <p className="text-gray-600">Loading...</p>
       ) : (

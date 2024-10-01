@@ -123,16 +123,16 @@ const BookList = ({ searchQuery }) => {
           <option value={30}>30 results</option>
         </select>
       </div>
-
       {loading ? (
         <p className="text-gray-600">Loading...</p>
       ) : (
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-          {books.map((book) => (
-            <div
-              key={book.id}
-              className="page-turn bg-[#ead9c6] border rounded-lg shadow-md p-4"
-            >
+        {books.map((book) => (
+          <div
+            key={book.id}
+            className="page-turn bg-[#ead9c6] border rounded-lg shadow-md p-4 flex flex-col justify-between"
+          >
+            <div>
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {book.title}
               </h2>
@@ -152,36 +152,37 @@ const BookList = ({ searchQuery }) => {
                 alt={book.title}
                 className="w-full h-auto mb-2"
               />
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-gray-600 mb-4">
                 <p className="mb-1">Author: {book.author || "Unknown"}</p>
                 <p className="mb-1">Genre: {book.subject || "Unknown"}</p>
                 <p className="mb-1">Published: {book.published || "Unknown"}</p>
               </div>
-              <div className="flex justify-end">
-                {book.addedToCart ? (
-                  <button
-                    className="bg-green-500 text-white font-semibold py-2 px-4 rounded-full cursor-not-allowed"
-                    disabled
-                  >
-                    Added to Cart
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => handleAddToCart(book.id)}
-                    className={`mt-2 ${
-                      book.isAvailable
-                        ? "bg-[#46331f] hover:bg-[#bd8345]"
-                        : "bg-gray-300 cursor-not-allowed"
-                    } text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out`}
-                    disabled={!book.isAvailable}
-                  >
-                    Add to Cart
-                  </button>
-                )}
-              </div>
             </div>
-          ))}
-        </div>
+            <div className="flex justify-end">
+              {book.addedToCart ? (
+                <button
+                  className="bg-green-500 text-white font-semibold py-2 px-4 rounded-full cursor-not-allowed"
+                  disabled
+                >
+                  Added to Cart
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleAddToCart(book.id)}
+                  className={`mt-2 ${
+                    book.isAvailable
+                      ? "bg-[#46331f] hover:bg-[#bd8345]"
+                      : "bg-gray-300 cursor-not-allowed"
+                  } text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out`}
+                  disabled={!book.isAvailable}
+                >
+                  Add to Cart
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
       )}
     </div>
   );

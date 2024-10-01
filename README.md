@@ -18,12 +18,6 @@ We are currently in the process of transitioning our authentication provider to 
 https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-4210-abef-6f1f119b8d11
 
 
-https://github.com/user-attachments/assets/7e44b28c-73c9-4d77-916e-cb5cbb0b718f
-
-
-
-
-
 ## Table of Contents
 - [MyLibrary 📚](#mylibrary-)
   - [Table of Contents](#table-of-contents)
@@ -167,6 +161,10 @@ npm run dev
 
 ## Contributing 🤝
 We welcome contributions from the community! Whether you are a developer, designer, writer, or enthusiast, there are many ways to get involved. Check out our [**Contributing Guidelines**](https://github.com/suryanshsingh2001/MyLibrary/blob/main/CONTRIBUTING.md) to learn more about how you can contribute.
+
+<a href="https://github.com/suryanshsingh2001/MyLibrary/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=suryanshsingh2001/MyLibrary" />
+</a>
 
 ## Code of Conduct 📜
 Please review our [**Code of Conduct**](https://github.com/suryanshsingh2001/MyLibrary/blob/main/CODE_OF_CONDUCT.md) to understand the expectations for behavior within our community.

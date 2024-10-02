@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import axios from 'axios';
-import { useCart } from '../utils/CartContext'; // Import useCart hook
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useAuth0 } from '@auth0/auth0-react'; // Import useAuth0 for user authentication
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useCart } from "../utils/CartContext"; // Import useCart hook
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useAuth0 } from "@auth0/auth0-react"; // Import useAuth0 for user authentication
 
 // Helper function to generate random integers
 function getRandomInt(min, max) {
@@ -16,19 +16,15 @@ const BookList = ({ searchQuery }) => {
   const { addToCart, cartItems } = useCart(); // Access addToCart function and cartItems from CartContext
   const { isAuthenticated } = useAuth0(); // Access isAuthenticated from Auth0
   const [selectedResults, setSelectedResults] = useState(10); //Reduced Results to optimize API Key Usage
-  const [page, setPage] = useState(0);
-  const observer = useRef();
-
   const isTrue = true;
-
-  const fetchBooks = useCallback(() => {
+  useEffect(() => {
+    // Replace 'YOUR_API_KEY' with your actual Google Books API key
     const apiKey = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY;
-    const query = searchQuery ? `intitle:${searchQuery}` : 'programming'; // Filter by title if searchQuery is provided, else use a default query
-    const startIndex = page * selectedResults;
+    const query = searchQuery ? `intitle:${searchQuery}` : "programming"; // Filter by title if searchQuery is provided, else use a default query
 
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&startIndex=${startIndex}&maxResults=${selectedResults}`
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=${selectedResults}`
       )
       .then((response) => {
         if (response.data.items) {
@@ -41,42 +37,32 @@ const BookList = ({ searchQuery }) => {
               id: book.id,
               title: book.volumeInfo.title,
               author: book.volumeInfo.authors
-                ? book.volumeInfo.authors.join(', ')
-                : 'Unknown',
+                ? book.volumeInfo.authors.join(", ")
+                : "Unknown",
               subject: book.volumeInfo.categories
-                ? book.volumeInfo.categories.join(', ')
-                : 'Unknown',
-              published: book.volumeInfo.publishedDate || 'Unknown',
+                ? book.volumeInfo.categories.join(", ")
+                : "Unknown",
+              published: book.volumeInfo.publishedDate || "Unknown",
               isAvailable, // Store availability status
               availableCopies, // Store available copies
-              image: book.volumeInfo.imageLinks?.thumbnail || '', // Image URL
+              image: book.volumeInfo.imageLinks?.thumbnail || "", // Image URL
             };
           });
-          setBooks((prevBooks) =>
-            page === 0 ? booksData : [...prevBooks, ...booksData]
-          );
+          setBooks(booksData);
         }
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error fetching book data:', error);
+        console.error("Error fetching book data:", error);
         setLoading(false);
       });
-  }, [searchQuery, selectedResults, page]);
-
-  useEffect(() => {
-    setBooks([]); // Reset books if searchQuery change
-    setPage(0); // Reset page number
   }, [searchQuery, selectedResults]);
-
-  useEffect(() => {
-    fetchBooks();
-  }, [fetchBooks]);
 
   // Function to add a book to the cart and decrease available copies
   const handleAddToCart = (bookId) => {
     if (!isTrue) {
-      toast.error('Please log in to use this feature.', {
+      // Check if the user is not logged in
+      toast.error("Please log in to use this feature.", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 3000,
         hideProgressBar: true,
@@ -96,9 +82,9 @@ const BookList = ({ searchQuery }) => {
         };
         toast.success(`"${updatedBook.title}" has been added to your cart.`, {
           position: toast.POSITION.TOP_CENTER, // Set the toast position
-          autoClose: 3000, // Close the toast after 3 seconds
-          hideProgressBar: true,
-          closeButton: false,
+          autoClose: 3000, // Close the toast after 3 seconds (adjust as needed)
+          hideProgressBar: true, // Hide the progress bar
+          closeButton: false, // Do not show a close button
         });
         return updatedBook;
       }
@@ -109,22 +95,7 @@ const BookList = ({ searchQuery }) => {
 
   const handleResultsChange = (event) => {
     setSelectedResults(event.target.value);
-    setPage(0);
   };
-
-  const lastBookElementRef = useCallback(
-    (node) => {
-      if (loading) return;
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          setPage((prevPage) => prevPage + 1); // Increment page number
-        }
-      });
-      if (node) observer.current.observe(node); // Observe new last book element
-    },
-    [loading]
-  );
 
   return (
     <div className="container mx-auto p-4 py-12 m-auto">
@@ -156,68 +127,62 @@ const BookList = ({ searchQuery }) => {
         <p className="text-gray-600">Loading...</p>
       ) : (
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-          {books.map((book, index) => {
-            const isLastBook = index === books.length - 1;
-            return (
-              <div
-                key={`${book.id}-${index}`}
-                ref={isLastBook ? lastBookElementRef : null} // Attach the ref to the last book element
-                className="page-turn bg-[#ead9c6] border rounded-lg shadow-md p-4"
-              >
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                  {book.title}
-                </h2>
-                {book.isAvailable ? (
-                  <p className="text-green-600 font-semibold mb-2">
-                    Available -{' '}
-                    <span className="font-semibold">
-                      {book.availableCopies}{' '}
-                      {book.availableCopies === 1 ? 'copy' : 'copies'}
-                    </span>
-                  </p>
-                ) : (
-                  <p className="text-red-600 font-semibold mb-2">
-                    Not Available
-                  </p>
-                )}
-                <img
-                  src={book.image}
-                  alt={book.title}
-                  className="w-full h-auto mb-2"
-                />
-                <div className="text-sm text-gray-600">
-                  <p className="mb-1">Author: {book.author || 'Unknown'}</p>
-                  <p className="mb-1">Genre: {book.subject || 'Unknown'}</p>
-                  <p className="mb-1">
-                    Published: {book.published || 'Unknown'}
-                  </p>
-                </div>
-                <div className="flex justify-end">
-                  {book.addedToCart ? (
-                    <button
-                      className="bg-green-500 text-white font-semibold py-2 px-4 rounded-full cursor-not-allowed"
-                      disabled
-                    >
-                      Added to Cart
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => handleAddToCart(book.id)}
-                      className={`mt-2 ${
-                        book.isAvailable
-                          ? 'bg-[#46331f] hover:bg-[#bd8345]'
-                          : 'bg-gray-300 cursor-not-allowed'
-                      } text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out`}
-                      disabled={!book.isAvailable}
-                    >
-                      Add to Cart
-                    </button>
-                  )}
-                </div>
+        {books.map((book) => (
+          <div
+            key={book.id}
+            className="page-turn bg-[#ead9c6] border rounded-lg shadow-md p-4 flex flex-col justify-between"
+          >
+            <div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {book.title}
+              </h2>
+              {book.isAvailable ? (
+                <p className="text-green-600 font-semibold mb-2">
+                  Available -{" "}
+                  <span className="font-semibold">
+                    {book.availableCopies}{" "}
+                    {book.availableCopies === 1 ? "copy" : "copies"}
+                  </span>
+                </p>
+              ) : (
+                <p className="text-red-600 font-semibold mb-2">Not Available</p>
+              )}
+              <img
+                src={book.image}
+                alt={book.title}
+                className="w-full h-auto mb-2"
+              />
+              <div className="text-sm text-gray-600 mb-4">
+                <p className="mb-1">Author: {book.author || "Unknown"}</p>
+                <p className="mb-1">Genre: {book.subject || "Unknown"}</p>
+                <p className="mb-1">Published: {book.published || "Unknown"}</p>
               </div>
-            );
-          })}
-        </div>
+            </div>
+            <div className="flex justify-end">
+              {book.addedToCart ? (
+                <button
+                  className="bg-green-500 text-white font-semibold py-2 px-4 rounded-full cursor-not-allowed"
+                  disabled
+                >
+                  Added to Cart
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleAddToCart(book.id)}
+                  className={`mt-2 ${
+                    book.isAvailable
+                      ? "bg-[#46331f] hover:bg-[#bd8345]"
+                      : "bg-gray-300 cursor-not-allowed"
+                  } text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out`}
+                  disabled={!book.isAvailable}
+                >
+                  Add to Cart
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
       )}
     </div>
   );

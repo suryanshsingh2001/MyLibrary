@@ -8,7 +8,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
   const [selectedSort, setSelectedSort] = useState("relevance");
 
   const filters = ["title", "author", "subject", "published"];
-  const sortOptions = ["relevance", "newest", "oldest"];
+  const sortOptions = ["relevance", "newest"];
 
   // used to check if one toast is already displaying and prevent multiple toasts
   const toastId = React.useRef(null);

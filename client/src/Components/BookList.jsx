@@ -10,7 +10,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const BookList = ({ searchQuery }) => {
+const BookList = ({ searchQuery, selectedSort }) => {
   const [books, setBooks] = useState([]); // Initialize books as an empty array
   const [loading, setLoading] = useState(true);
   const { addToCart, cartItems } = useCart(); // Access addToCart function and cartItems from CartContext
@@ -26,7 +26,7 @@ const BookList = ({ searchQuery }) => {
 
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&startIndex=${startIndex}&maxResults=${selectedResults}`
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&startIndex=${startIndex}&maxResults=${selectedResults}&orderBy=${selectedSort}`
       )
       .then((response) => {
         if (response.data.items) {
@@ -60,7 +60,7 @@ const BookList = ({ searchQuery }) => {
         console.error('Error fetching book data:', error);
         setLoading(false);
       });
-  }, [searchQuery, selectedResults, page]);
+  }, [searchQuery, selectedResults, page, selectedSort]);
 
   useEffect(() => {
     setBooks([]); // Reset books if searchQuery changes

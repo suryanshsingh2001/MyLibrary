@@ -9,8 +9,16 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
   const [selectedFilter, setSelectedFilter] = useState("title");
   const [selectedSort, setSelectedSort] = useState("relevance");
 
-  const filters = ["title", "author", "subject", "published"];
-  const sortOptions = ["relevance", "newest", "oldest"];
+  const filters = [
+    {label: 'filter_option_title', value: 'title'},
+    {label: 'filter_option_author', value: 'author'},
+    {label: 'filter_option_subject', value: 'subject'},
+    {label: 'filter_option_published', value: 'published'},
+  ];
+  const sortOptions = [
+    {label: 'sort_option_relevance', value: 'relevance'},
+    {label: 'sort_option_newest', value: 'newest'},
+  ];
 
   // used to check if one toast is already displaying and prevent multiple toasts
   const toastId = React.useRef(null);
@@ -87,8 +95,8 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
               className="px-4 py-2 capitalize border border-slate-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 shadow-sm  max-md:w-full"
             >
               {filters.map((filter) => (
-                <option key={filter} value={filter}>
-                  {t(filter)}
+                <option key={filter} value={filter.value}>
+                  {t(filter.label)}
                 </option>
               ))}
             </select>
@@ -104,8 +112,8 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
               className="px-4 py-2 capitalize border border-slate-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 shadow-sm max-md:w-full"
             >
               {sortOptions.map((sortOption) => (
-                <option key={sortOption} value={sortOption}>
-                  {t(sortOption)}
+                <option key={sortOption} value={sortOption.value}>
+                  {t(sortOption.label)}
                 </option>
               ))}
             </select>

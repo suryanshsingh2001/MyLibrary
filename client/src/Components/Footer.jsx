@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "../index.css";
+import { useI18nProContext } from "@marchintosh94/i18n-pro-react";
 
 const Footer = () => {
+  const { t } = useI18nProContext();
   return (
     <footer className="bg-[#523f1b] text-white py-6 mt-auto">
       <div className="container mx-auto flex flex-col items-center justify-center text-center">
         <div className="text-3xl font-semibold mb-2">
-          Explore More Amazing Books!
+          {t('footer_main_title')}
         </div>
         <div className="text-lg text-gray-400 mb-4">
-          Because reading is the ultimate adventure.
+          {t('footer_subtitle')}
         </div>
         <div className="flex items-center space-x-2">
           <a href="https://github.com/suryanshsingh2001/MyLibrary/"
@@ -23,7 +25,7 @@ const Footer = () => {
             <span className="absolute left-0 w-56 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
             <span className=" relative">
               <FontAwesomeIcon icon={faGithub} className="mr-2" />
-              View Source Code
+              {t('github_link_text')}
             </span>
             </span>
             <span

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useI18nProContext } from "@marchintosh94/i18n-pro-react";
 
 const Search = ({ onSearch, onFilterChange, onSortChange }) => {
+  const { t } = useI18nProContext()
   const [selectedFilter, setSelectedFilter] = useState("title");
   const [selectedSort, setSelectedSort] = useState("relevance");
 
@@ -44,7 +46,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
       )
       .then((res) => {
         const data = res.data;
-        const opts = data.items.map((d) => {
+        const opts = data.items?.map((d) => {
           return {
             value: d.id,
             label: `${d.volumeInfo.title}${
@@ -64,17 +66,19 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
     <div className="container mx-auto p-4">
       <div className="lg:flex justify-between items-center gap-5 mb-4">
         <AsyncSelect
-          placeholder="Search for Books Suggestions"
+          placeholder={t("book_search_placeholder")}
           loadOptions={handleChange}
           onChange={handleSelect}
           defaultOptions={false} /* No loading icon on mount */
           className="w-full"
+          loadingMessage={() => t("loading") }
+          noOptionsMessage={() => t("search_no_results_found") }
         />
         <div className="mt-4 gap-4 grid lg:flex lg:m-0">
           {/* Added ml-4 here */}
           <div className="relative flex items-center justify-between gap-2 w-full">
             <label htmlFor="filter" className="text-gray-600 whitespace-nowrap">
-              Filter By :{" "}
+              {t("filter_by")} :{" "}
             </label>
             <select
               id="filter"
@@ -84,14 +88,14 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
             >
               {filters.map((filter) => (
                 <option key={filter} value={filter}>
-                  {filter}
+                  {t(filter)}
                 </option>
               ))}
             </select>
           </div>
           <div className="relative flex items-center justify-between gap-2 ">
             <label htmlFor="sort" className="text-gray-600 whitespace-nowrap">
-              Sort By :{" "}
+              {t("sort_by")} :{" "}
             </label>
             <select
               id="sort"
@@ -101,7 +105,7 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
             >
               {sortOptions.map((sortOption) => (
                 <option key={sortOption} value={sortOption}>
-                  {sortOption}
+                  {t(sortOption)}
                 </option>
               ))}
             </select>

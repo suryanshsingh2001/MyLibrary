@@ -1,4 +1,4 @@
-const applicationLocales = ['en-us'];
+const applicationLocales = ['en-us', 'it-it'];
 const defaultLocale = 'en-us';
 
 export const applicationLanguagesDropdown = [

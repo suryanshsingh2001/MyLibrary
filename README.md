@@ -15,8 +15,9 @@ We are currently in the process of transitioning our authentication provider to 
 
 🔗 [Live Link](https://mylibrary01.vercel.app/)
 
-https://github.com/suryanshsingh2001/MyLibrary/assets/80690023/175a25aa-e719-4210-abef-6f1f119b8d11
+https://github.com/user-attachments/assets/725b2b4a-5b79-4c4b-bc12-24aac7006516
 
+🔗 [Video Link](https://drive.google.com/file/d/1kc842eXRTWBl9BZlxkU-aSq8w5mqV5Z2/view?usp=drive_link)
 
 ## Table of Contents
 - [MyLibrary 📚](#mylibrary-)

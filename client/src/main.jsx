@@ -3,6 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { I18nProProvider } from "@marchintosh94/i18n-pro-react";
+import { getDefaultLocale } from "./utils/i18n.js";
+
+const defaultLocale = getDefaultLocale();
 
 const auth0Config = {
   domain: import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN,
@@ -11,6 +15,8 @@ const auth0Config = {
 };
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Auth0Provider {...auth0Config}>
-    <App />
+    <I18nProProvider initialSetup={{ locale: defaultLocale, path: `/i18n/${defaultLocale}.json`}} >
+      <App />
+    </I18nProProvider>
   </Auth0Provider>
 );

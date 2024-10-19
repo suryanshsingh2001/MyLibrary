@@ -6,6 +6,7 @@ import Cart from "./Cart";
 import Loading from "./Loading";
 import Footer from "./Footer";
 import { TopButton } from "./TopButton";
+import Dropdown from "./Form/Dropdown";
 
 export {
     Header,
@@ -14,5 +15,6 @@ export {
     Cart,
     Loading,
     Footer,
-    TopButton
+    TopButton,
+    Dropdown
 }

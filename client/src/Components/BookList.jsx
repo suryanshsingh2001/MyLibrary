@@ -22,7 +22,7 @@ const BookList = ({ searchQuery, selectedSort }) => {
   const { t } = useI18nProContext();
 
   const fetchBooks = useCallback(() => {
-    const apiKey = "AIzaSyBDKbIm_3ZNZ3lbkEv2SK_CZqE58kmn6Ro";
+    const apiKey = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY;
     const query = searchQuery ? `intitle:${searchQuery}` : "programming"; // Filter by title if searchQuery is provided, else use a default query
     const startIndex = page * selectedResults;
     console.log(apiKey);

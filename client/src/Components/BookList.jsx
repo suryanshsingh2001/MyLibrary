@@ -25,7 +25,6 @@ const BookList = ({ searchQuery, selectedSort }) => {
     const apiKey = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY;
     const query = searchQuery ? `intitle:${searchQuery}` : "programming"; // Filter by title if searchQuery is provided, else use a default query
     const startIndex = page * selectedResults;
-    console.log(apiKey);
 
     axios
       .get(

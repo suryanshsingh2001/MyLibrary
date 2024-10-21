@@ -2,23 +2,13 @@ import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useI18nProContext } from "@marchintosh94/i18n-pro-react";
 
 const Search = ({ onSearch, onFilterChange, onSortChange }) => {
-  const { t } = useI18nProContext();
   const [selectedFilter, setSelectedFilter] = useState("title");
   const [selectedSort, setSelectedSort] = useState("relevance");
 
-  const filters = [
-    { label: "filter_option_title", value: "title" },
-    { label: "filter_option_author", value: "author" },
-    { label: "filter_option_subject", value: "subject" },
-    { label: "filter_option_published", value: "published" },
-  ];
-  const sortOptions = [
-    { label: "sort_option_relevance", value: "relevance" },
-    { label: "sort_option_newest", value: "newest" },
-  ];
+  const filters = ["title", "author", "subject", "published"];
+  const sortOptions = ["relevance", "newest"];
 
   // used to check if one toast is already displaying and prevent multiple toasts
   const toastId = React.useRef(null);
@@ -74,19 +64,17 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
     <div className="container mx-auto p-4">
       <div className="lg:flex justify-between items-center gap-5 mb-4">
         <AsyncSelect
-          placeholder={t("book_search_placeholder")}
+          placeholder="Search for Books Suggestions"
           loadOptions={handleChange}
           onChange={handleSelect}
           defaultOptions={false} /* No loading icon on mount */
           className="w-full"
-          loadingMessage={() => t("loading")}
-          noOptionsMessage={() => t("search_no_results_found")}
         />
         <div className="mt-4 gap-4 grid lg:flex lg:m-0">
           {/* Added ml-4 here */}
           <div className="relative flex items-center justify-between gap-2 w-full">
             <label htmlFor="filter" className="text-gray-600 whitespace-nowrap">
-              {t("filter_by")} :{" "}
+              Filter By :{" "}
             </label>
             <select
               id="filter"
@@ -95,15 +83,15 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
               className="px-4 py-2 capitalize border border-slate-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 shadow-sm  max-md:w-full"
             >
               {filters.map((filter) => (
-                <option key={filter.label} value={filter.value}>
-                  {t(filter.label)}
+                <option key={filter} value={filter}>
+                  {filter}
                 </option>
               ))}
             </select>
           </div>
           <div className="relative flex items-center justify-between gap-2 ">
             <label htmlFor="sort" className="text-gray-600 whitespace-nowrap">
-              {t("sort_by")} :{" "}
+              Sort By :{" "}
             </label>
             <select
               id="sort"
@@ -112,8 +100,8 @@ const Search = ({ onSearch, onFilterChange, onSortChange }) => {
               className="px-4 py-2 capitalize border border-slate-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 shadow-sm max-md:w-full"
             >
               {sortOptions.map((sortOption) => (
-                <option key={sortOption.label} value={sortOption.value}>
-                  {t(sortOption.label)}
+                <option key={sortOption} value={sortOption}>
+                  {sortOption}
                 </option>
               ))}
             </select>

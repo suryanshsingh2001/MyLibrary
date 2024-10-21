@@ -110,19 +110,22 @@ const BookList = ({ searchQuery, selectedSort }) => {
     setPage(0);
   };
 
-  const lastBookElementRef = useCallback(
-    (node) => {
-      if (loading) return;
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          setPage((prevPage) => prevPage + 1); // Increment page number
-        }
-      });
-      if (node) observer.current.observe(node); // Observe new last book element
-    },
-    [loading]
-  );
+  // const lastBookElementRef = useCallback(
+  //   (node) => {
+  //     if (loading) return;
+  //     if (observer.current) observer.current.disconnect();
+  //     observer.current = new IntersectionObserver((entries) => {
+  //       if (entries[0].isIntersecting) {
+  //         setPage((prevPage) => prevPage + 1); // Increment page number
+  //       }
+  //     });
+  //     if (node) observer.current.observe(node); // Observe new last book element
+  //   },
+  //   [loading]
+  // );
+  const loadMore = () =>{
+    setPage((prevPage) => prevPage + 1); // Increment page number
+  }
 
   return (
     <div className="container mx-auto p-4 py-12 m-auto">
@@ -159,7 +162,7 @@ const BookList = ({ searchQuery, selectedSort }) => {
             return (
               <div
                 key={book.id} // Use book.id as the key
-                ref={isLastBook ? lastBookElementRef : null} // Attach the ref to the last book element
+                // ref={isLastBook ? lastBookElementRef : null} // Attach the ref to the last book element
                 className="page-turn bg-[#ead9c6] border rounded-lg shadow-md p-4 flex flex-col justify-between"
               >
                 <div>
@@ -218,7 +221,14 @@ const BookList = ({ searchQuery, selectedSort }) => {
             );
           })}
         </div>
+
       )}
+      <div className="w-full flex justify-center mt-10">
+        <div>
+
+       <button className="text-lg bg-[#46331f] hover:bg-[#bd8345] text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out" onClick={loadMore}>Load more...</button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import axios from "axios";
-import { useCart } from "../utils/CartContext"; // Import useCart hook
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useAuth0 } from "@auth0/auth0-react"; // Import useAuth0 for user authentication
-import { useI18nProContext } from "@marchintosh94/i18n-pro-react";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import axios from 'axios';
+import { useCart } from '../utils/CartContext'; // Import useCart hook
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useAuth0 } from '@auth0/auth0-react'; // Import useAuth0 for user authentication
 
 // Helper function to generate random integers
 function getRandomInt(min, max) {
@@ -19,11 +18,10 @@ const BookList = ({ searchQuery, selectedSort }) => {
   const [selectedResults, setSelectedResults] = useState(10); // Reduced Results to optimize API Key Usage
   const [page, setPage] = useState(0);
   const observer = useRef();
-  const { t } = useI18nProContext();
 
   const fetchBooks = useCallback(() => {
     const apiKey = import.meta.env.VITE_REACT_APP_GOOGLE_API_KEY;
-    const query = searchQuery ? `intitle:${searchQuery}` : "programming"; // Filter by title if searchQuery is provided, else use a default query
+    const query = searchQuery ? `intitle:${searchQuery}` : 'programming'; // Filter by title if searchQuery is provided, else use a default query
     const startIndex = page * selectedResults;
 
     axios
@@ -41,15 +39,15 @@ const BookList = ({ searchQuery, selectedSort }) => {
               id: book.id,
               title: book.volumeInfo.title,
               author: book.volumeInfo.authors
-                ? book.volumeInfo.authors.join(", ")
-                : t("unknown"),
+                ? book.volumeInfo.authors.join(', ')
+                : 'Unknown',
               subject: book.volumeInfo.categories
-                ? book.volumeInfo.categories.join(", ")
-                : t("unknown"),
-              published: book.volumeInfo.publishedDate || t("unknown"),
+                ? book.volumeInfo.categories.join(', ')
+                : 'Unknown',
+              published: book.volumeInfo.publishedDate || 'Unknown',
               isAvailable, // Store availability status
               availableCopies, // Store available copies
-              image: book.volumeInfo.imageLinks?.thumbnail || "", // Image URL
+              image: book.volumeInfo.imageLinks?.thumbnail || '', // Image URL
             };
           });
           setBooks((prevBooks) =>
@@ -59,7 +57,7 @@ const BookList = ({ searchQuery, selectedSort }) => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching book data:", error);
+        console.error('Error fetching book data:', error);
         setLoading(false);
       });
   }, [searchQuery, selectedResults, page, selectedSort]);
@@ -76,7 +74,7 @@ const BookList = ({ searchQuery, selectedSort }) => {
   const handleAddToCart = (bookId) => {
     if (!isAuthenticated) {
       // Check if the user is not logged in
-      toast.error(t("error_login_to_add_to_cart"), {
+      toast.error('Please log in to use this feature.', {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 3000,
         hideProgressBar: true,
@@ -94,10 +92,7 @@ const BookList = ({ searchQuery, selectedSort }) => {
           addedToCart: true,
           availableCopies: updatedCopies,
         };
-        const message = t("book_added_to_cart", {
-          title: `"${updatedBook.title}"`,
-        });
-        toast.success(message, {
+        toast.success(`"${updatedBook.title}" has been added to your cart.`, {
           position: toast.POSITION.TOP_CENTER, // Set the toast position
           autoClose: 3000, // Close the toast after 3 seconds (adjust as needed)
           hideProgressBar: true, // Hide the progress bar
@@ -135,27 +130,31 @@ const BookList = ({ searchQuery, selectedSort }) => {
   return (
     <div className="container mx-auto p-4 py-12 m-auto">
       <h1 className="text-3xl lg:text-4xl font-bold text-[#222222] mb-4">
-        {t("book_list_title")}
+        Explore Our Collection
       </h1>
-      <p className="text-lg text-gray-600 mb-4">{t("book_list_content")}</p>
+      <p className="text-lg text-gray-600 mb-4">
+        Discover a wide variety of books in our collection. Whether you're
+        searching for fiction, non-fiction, or a specific genre, we have
+        something for every book lover.
+      </p>
 
       <div className="mb-4">
         <label className="text-gray-600 font-semibold">
-          {t("results_per_page")}
+          Show Results Per Page:
         </label>
         <select
           className="ml-2 border rounded-lg px-2 py-1 pr-4 focus:outline-none focus:border-blue-500 shadow-sm text-gray-800"
           value={selectedResults}
           onChange={handleResultsChange}
         >
-          <option value={5}>5 {t("results")}</option>
-          <option value={10}>10 {t("results")}</option>
-          <option value={20}>20 {t("results")}</option>
-          <option value={30}>30 {t("results")}</option>
+          <option value={5}>5 results</option>
+          <option value={10}>10 results</option>
+          <option value={20}>20 results</option>
+          <option value={30}>30 results</option>
         </select>
       </div>
       {loading ? (
-        <p className="text-gray-600">{t("loading")}</p>
+        <p className="text-gray-600">Loading...</p>
       ) : (
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
           {books.map((book, index) => {
@@ -172,15 +171,15 @@ const BookList = ({ searchQuery, selectedSort }) => {
                   </h2>
                   {book.isAvailable ? (
                     <p className="text-green-600 font-semibold mb-2">
-                      {t("available")} -{" "}
+                      Available -{' '}
                       <span className="font-semibold">
-                        {book.availableCopies}{" "}
-                        {t("copy", book.availableCopies === 1 ? 1 : 2)}
+                        {book.availableCopies}{' '}
+                        {book.availableCopies === 1 ? 'copy' : 'copies'}
                       </span>
                     </p>
                   ) : (
                     <p className="text-red-600 font-semibold mb-2">
-                      {t("not_available")}
+                      Not Available
                     </p>
                   )}
                   <img
@@ -189,14 +188,10 @@ const BookList = ({ searchQuery, selectedSort }) => {
                     className="w-full h-auto mb-2"
                   />
                   <div className="text-sm text-gray-600 mb-4">
+                    <p className="mb-1">Author: {book.author || 'Unknown'}</p>
+                    <p className="mb-1">Genre: {book.subject || 'Unknown'}</p>
                     <p className="mb-1">
-                      {t("author")}: {book.author || t("unknown")}
-                    </p>
-                    <p className="mb-1">
-                      {t("genre")}: {book.subject || t("unknown")}
-                    </p>
-                    <p className="mb-1">
-                      {t("published")}: {book.published || t("unknown")}
+                      Published: {book.published || 'Unknown'}
                     </p>
                   </div>
                 </div>
@@ -206,19 +201,19 @@ const BookList = ({ searchQuery, selectedSort }) => {
                       className="bg-green-500 text-white font-semibold py-2 px-4 rounded-full cursor-not-allowed"
                       disabled
                     >
-                      {t("added_to_cart")}
+                      Added to Cart
                     </button>
                   ) : (
                     <button
                       onClick={() => handleAddToCart(book.id)}
                       className={`mt-2 ${
                         book.isAvailable
-                          ? "bg-[#46331f] hover:bg-[#bd8345]"
-                          : "bg-gray-300 cursor-not-allowed"
+                          ? 'bg-[#46331f] hover:bg-[#bd8345]'
+                          : 'bg-gray-300 cursor-not-allowed'
                       } text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out`}
                       disabled={!book.isAvailable}
                     >
-                      {t("add_to_cart")}
+                      Add to Cart
                     </button>
                   )}
                 </div>

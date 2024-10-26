@@ -19,6 +19,7 @@
     "axios": "^1.5.0",
     "firebase": "^10.4.0",
     "lodash.debounce": "^4.0.8",
+    "lucide-react": "^0.453.0",
     "react": "^18.2.0",
     "react-autosuggest": "^10.1.0",
     "react-dom": "^18.2.0",

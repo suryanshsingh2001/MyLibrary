@@ -196,7 +196,7 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-4">Reader Services</h3>
             <ul className="space-y-2">
               <li><a href="#" className="hover:text-white">My Account</a></li>
-              <li><a href="#" className="hover:text-white">Reading Lists</a></li>
+              <li><a href="./blogs" className="hover:text-white">Reading Lists</a></li>
               <li><a href="#" className="hover:text-white">Book Reservations</a></li>
               <li><a href="#" className="hover:text-white">Library Card</a></li>
               <li><a href="#" className="hover:text-white">Reading History</a></li>
